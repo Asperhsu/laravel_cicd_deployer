@@ -3,8 +3,6 @@ stages:
 
 test:
   stage: test
-  services:
-    - mysql:5.7
   image: edbizarro/gitlab-ci-pipeline-php:7.1
   script:
     - echo "do some test"
