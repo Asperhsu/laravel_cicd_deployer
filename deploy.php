@@ -15,14 +15,14 @@ add('shared_dirs', []);
 // Writable dirs by web server
 add('writable_dirs', []);
 
-set('allow_anonymous_stats', false);
-set('writable_mode', 'chmod');
+// set('allow_anonymous_stats', false);
+// set('writable_mode', 'chmod');
 
 
 // Hosts
 host(get('host'))
     ->user('deployer')
-    ->addSshOption('StrictHostKeyChecking', 'no')
+    // ->addSshOption('StrictHostKeyChecking', 'no')
     ->set('deploy_path', '/var/www/{{application}}');
 
 // Tasks
