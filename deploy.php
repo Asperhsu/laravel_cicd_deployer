@@ -23,6 +23,7 @@ add('writable_dirs', []);
 // Hosts
 host(get('deploy_host'))
     ->user('deployer')
+    ->addSshOption('StrictHostKeyChecking', 'no')
     ->set('deploy_path', '{{deploy_path}}/{{project_name}}');
 
 // Tasks
