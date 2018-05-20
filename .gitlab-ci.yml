@@ -39,12 +39,12 @@ cache:
 #     expire_in: 1 days
 #     when: always
 
-deploy:
+deploy_staging:
   stage: deploy
   image: fabeat/php-deployer
-  environment: development
+  environment: staging
   variables:
-    DEPLOY_PATH: /var/www/
+    DEPLOY_PATH: /var/www
     DEPLOY_SERVER: qa.local
   script:
     - echo "$SSH_PRIVATE_KEY" | ssh-add -
