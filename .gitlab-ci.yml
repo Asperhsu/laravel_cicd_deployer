@@ -20,7 +20,7 @@ cache:
     # - .yarn
 
 
-# test:
+test:
   stage: test
   services:
     - mysql:5.7
