@@ -23,11 +23,11 @@ add('writable_dirs', []);
 host(get('deploy_host'))
     ->user('deployer')
     ->addSshOption('StrictHostKeyChecking', 'no')
-    ->set('deploy_path', '/var/www/{{project_name}}');
+    ->set('deploy_path', '{{deploy_path}}/{{project_name}}');
 
 // Tasks
-// task('artisan:optimize', function () {
-// });   // @overwrite
+task('artisan:optimize', function () {
+});   // @overwrite
 
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
