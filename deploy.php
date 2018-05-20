@@ -31,7 +31,7 @@ host(get('deploy_host'))
 // Tasks
 
 // [Optional] if deploy fails automatically unlock.
-after('deploy:failed', 'deploy:unlock');
+// after('deploy:failed', 'deploy:unlock');
 
-// Migrate database before symlink new release.
-before('deploy:symlink', 'artisan:migrate');
+// // Migrate database before symlink new release.
+// before('deploy:symlink', 'artisan:migrate');
