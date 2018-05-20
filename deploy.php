@@ -11,6 +11,8 @@ set('repository', getenv('CI_REPOSITORY_URL'));
 set('deploy_path', getenv('DEPLOY_PATH'));
 set('deploy_host', getenv('DEPLOY_SERVER'));
 
+// [Optional] Allocate tty for git clone. Default value is false.
+set('git_tty', true);
 
 // Shared files/dirs between deploys
 add('shared_files', []);
@@ -18,9 +20,10 @@ add('shared_dirs', []);
 
 // Writable dirs by web server
 add('writable_dirs', []);
-
+set('writable_mode', 'chmod');
 
 // Hosts
+
 host(get('deploy_host'))
     ->user('deployer')
     ->addSshOption('StrictHostKeyChecking', 'no')
