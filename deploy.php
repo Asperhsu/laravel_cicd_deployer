@@ -18,6 +18,7 @@ print_r([
     getenv('CI_ENVIRONMENT_NAME'),
     getenv('DEPLOY_PATH'),
     getenv('DEPLOY_SERVER'),
+    get('deploy_host')
 ]);
 
 // [Optional] Allocate tty for git clone. Default value is false.
