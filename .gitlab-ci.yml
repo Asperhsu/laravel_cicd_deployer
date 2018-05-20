@@ -48,7 +48,6 @@ deploy:
     DEPLOY_SERVER: qa.local
   script:
     - echo "$SSH_PRIVATE_KEY" | ssh-add -
-    - echo "$SSH_PRIVATE_KEY"
     - dep deploy -vvv
   only:
     - master

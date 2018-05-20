@@ -30,10 +30,6 @@ host(get('deploy_host'))
 
 // Tasks
 
-task('build', function () {
-    run('cd {{release_path}} && build');
-});
-
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
 
