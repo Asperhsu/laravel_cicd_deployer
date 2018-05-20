@@ -22,7 +22,7 @@ add('writable_dirs', []);
 // Hosts
 host(get('host'))
     ->user('deployer')
-    // ->addSshOption('StrictHostKeyChecking', 'no')
+    ->addSshOption('StrictHostKeyChecking', 'no')
     ->set('deploy_path', '/var/www/{{application}}');
 
 // Tasks
