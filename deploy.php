@@ -23,7 +23,7 @@ add('writable_dirs', []);
 host(get('deploy_host'))
     ->user('deployer')
     ->addSshOption('StrictHostKeyChecking', 'no')
-    ->set('deploy_path', '{{deploy_path}}/{{project_name}}');
+    ->set('deploy_path', get('deploy_path').'/'.get('project_name'));
 
 // Tasks
 task('artisan:optimize', function () {
