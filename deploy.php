@@ -23,6 +23,7 @@ add('writable_dirs', []);
 // Hosts
 
 host('project.com')
+    ->user('deployer')
     ->set('deploy_path', '~/{{application}}');
 
 // Tasks
