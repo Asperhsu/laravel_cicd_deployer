@@ -3,10 +3,13 @@ namespace Deployer;
 
 require 'recipe/laravel.php';
 
-// setting
-set('application', 'my_project');
-set('host', 'qa.local');
-set('repository', 'git@gitlab.local:asper/testci.git');
+// Project
+set('project_name', getenv('CI_PROJECT_NAME'));
+set('repository', getenv('CI_REPOSITORY_URL'));
+
+// host
+set('deploy_path', getenv('DEPLOY_PATH'));
+set('deploy_host', getenv('DEPLOY_SERVER'));
 
 // Shared files/dirs between deploys
 add('shared_files', []);
@@ -20,10 +23,10 @@ add('writable_dirs', []);
 
 
 // Hosts
-host(get('host'))
+host(get('deploy_host'))
     ->user('deployer')
     ->addSshOption('StrictHostKeyChecking', 'no')
-    ->set('deploy_path', '/var/www/{{application}}');
+    ->set('deploy_path', '/var/www/{{project_name}}');
 
 // Tasks
 task('artisan:optimize', function () {
@@ -33,4 +36,4 @@ task('artisan:optimize', function () {
 after('deploy:failed', 'deploy:unlock');
 
 // Migrate database before symlink new release.
-before('deploy:symlink', 'artisan:migrate');
+// before('deploy:symlink', 'artisan:migrate');
