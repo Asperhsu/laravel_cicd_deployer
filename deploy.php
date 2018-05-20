@@ -18,7 +18,8 @@ print_r([
     getenv('CI_ENVIRONMENT_NAME'),
     getenv('DEPLOY_PATH'),
     getenv('DEPLOY_SERVER'),
-    get('deploy_host')
+    get('deploy_host'),
+    get('stage'),
 ]);
 
 // [Optional] Allocate tty for git clone. Default value is false.
@@ -35,7 +36,7 @@ add('writable_dirs', []);
 // Hosts
 
 host(get('deploy_host'))
-    ->stage(get('stage'))
+    // ->stage(get('stage'))
     ->user('deployer')
     ->set('deploy_path', '{{deploy_path}}/{{project_name}}');
 
