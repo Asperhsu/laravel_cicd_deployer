@@ -12,6 +12,13 @@ set('stage', getenv('CI_ENVIRONMENT_NAME'));
 set('deploy_path', getenv('DEPLOY_PATH'));
 set('deploy_host', getenv('DEPLOY_SERVER'));
 
+print_r([
+    getenv('CI_PROJECT_NAME'),
+    getenv('CI_REPOSITORY_URL'),
+    getenv('CI_ENVIRONMENT_NAME'),
+    getenv('DEPLOY_PATH'),
+    getenv('DEPLOY_SERVER'),
+]);
 
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', true);
