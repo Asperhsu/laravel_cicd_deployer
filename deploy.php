@@ -20,13 +20,12 @@ add('shared_dirs', []);
 
 // Writable dirs by web server
 add('writable_dirs', []);
-set('writable_mode', 'chmod');
 
 // Hosts
 
 host(get('deploy_host'))
     ->user('deployer')
-    ->addSshOption('StrictHostKeyChecking', 'no')
+    // ->addSshOption('StrictHostKeyChecking', 'no')
     ->set('deploy_path', '{{deploy_path}}/{{project_name}}');
 
 // Tasks
